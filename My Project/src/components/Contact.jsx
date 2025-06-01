@@ -25,7 +25,7 @@ const Contact = () => {
 
     try {
       const response = await fetch(
-        "https://my-portfolio-mu-snowy-34.vercel.app/api/contact",
+        "https://wonderful-vitality.up.railway.app/api/contact",
         {
           method: "POST",
           headers: {
