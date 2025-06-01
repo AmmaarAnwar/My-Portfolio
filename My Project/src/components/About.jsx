@@ -50,7 +50,7 @@ const About = () => {
                     <strong>Location:</strong> Cairo, Egypt
                   </p>
                   <p className="text-gray-600">
-                    <strong>Email:</strong> Anwaramar177@gmail.com
+                    <strong>Email:</strong> anwaramar177@gmail.com
                   </p>
                 </div>
               </div>
