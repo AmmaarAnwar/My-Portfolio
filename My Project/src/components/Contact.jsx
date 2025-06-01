@@ -25,7 +25,7 @@ const Contact = () => {
 
     try {
       const response = await fetch(
-        "https://wonderful-vitality.up.railway.app/api/contact",
+        "https://api-production-4280.up.railway.app/api/contact",
         {
           method: "POST",
           headers: {
