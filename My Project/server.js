@@ -13,7 +13,7 @@ app.use(express.json());
 
 const CONTACTS_FILE = join(__dirname, "contacts.json");
 
-// Initialize contacts file if it doesn't exist
+
 try {
   await fs.access(CONTACTS_FILE);
 } catch {
@@ -39,5 +39,5 @@ app.post("/api/contact", async (req, res) => {
 });
 
 app.listen(3000, () => {
-  console.log("Server running on http://localhost:3000");
+  console.log("Server running on https://my-portfolio-mu-snowy-34.vercel.app");
 });

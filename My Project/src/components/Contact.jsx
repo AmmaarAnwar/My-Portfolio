@@ -24,13 +24,16 @@ const Contact = () => {
     setSubmitStatus({ type: "loading", message: "Sending message..." });
 
     try {
-      const response = await fetch("http://localhost:3000/api/contact", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
-      });
+      const response = await fetch(
+        "https://my-portfolio-mu-snowy-34.vercel.app/api/contact",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(formData),
+        }
+      );
 
       if (!response.ok) throw new Error("Failed to send message");
 
