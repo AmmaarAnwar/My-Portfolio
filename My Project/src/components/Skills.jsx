@@ -29,7 +29,7 @@ const Skills = () => {
       icon: <FaJs className="text-[#F7DF1E]" />,
       level: 80,
     },
-    { name: "HTML5", icon: <FaHtml5 className="text-[#E34F26]" />, level: 95 },
+    { name: "HTML5", icon: <FaHtml5 className="text-[#E34F26]" />, level: 90 },
     { name: "CSS3", icon: <FaCss3Alt className="text-[#1572B6]" />, level: 90 },
     {
       name: "Node.js",
