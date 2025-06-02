@@ -102,7 +102,7 @@ const Hero = () => {
               animate={{ y: [0, 10, 0] }}
               transition={{ duration: 2, repeat: Infinity }}
             >
-              <p className="font-bold text-primary-600">1 Years Experience</p>
+              <p className="font-bold text-primary-600">1 Years Of Experience</p>
               <p className="text-sm text-gray-600">Web Development</p>
             </motion.div>
           </motion.div>
