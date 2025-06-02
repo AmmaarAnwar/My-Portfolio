@@ -18,16 +18,16 @@ const Skills = () => {
   const [activeTab, setActiveTab] = useState("technical");
 
   const technicalSkills = [
-    { name: "React", icon: <FaReact className="text-[#61DAFB]" />, level: 90 },
+    { name: "React", icon: <FaReact className="text-[#61DAFB]" />, level: 80 },
     {
       name: "Tailwind CSS",
       icon: <SiTailwindcss className="text-[#38B2AC]" />,
-      level: 90,
+      level: 85,
     },
     {
       name: "JavaScript",
       icon: <FaJs className="text-[#F7DF1E]" />,
-      level: 85,
+      level: 80,
     },
     { name: "HTML5", icon: <FaHtml5 className="text-[#E34F26]" />, level: 95 },
     { name: "CSS3", icon: <FaCss3Alt className="text-[#1572B6]" />, level: 90 },
@@ -39,7 +39,7 @@ const Skills = () => {
     {
       name: "Responsive Design",
       icon: <FaMobile className="text-gray-700" />,
-      level: 90,
+      level: 85,
     },
     {
       name: "Git & GitHub",
@@ -49,7 +49,7 @@ const Skills = () => {
     {
       name: "Python",
       icon: <FaPython className="text-gray-700" />,
-      level: 60,
+      level: 65,
     },
     {
       name: "Bootstrap",
