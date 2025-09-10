@@ -76,6 +76,33 @@ const Projects = () => {
       technologies: ["React", "Tailwind CSS", "Node.JS", "Chart.JS"],
       githubLink: " https://github.com/AmmaarAnwar/My-Portfolio",
     },
+    {
+      id: 7,
+      title: "Koshry El Tahrir Website",
+      image: "/Project6.jpg",
+      description:
+        "A React-based restaurant website showcasing Koshry El Tahrir in Egypt with an interactive menu, modern UI, and responsive design. The site allows users to browse dishes explore categories, and enjoy a smooth navigation experience",
+      technologies: ["React", "Tailwind CSS", "Node.JS"],
+      githubLink: "https://github.com/AmmaarAnwar/Koshry-Tahrir",
+    },
+    {
+      id: 8,
+      title: " E-Commerce Website (Amazon Clone)",
+      image: "/Project7.jpg",
+      description:
+        "E-commerce platform inspired by Amazon, featuring product listings, single product pages, dynamic cart management, and responsive UI for a smooth shopping experience.",
+      technologies: ["React", "Tailwind CSS", "Node.JS"],
+      githubLink: "https://e-commerce-one-roan-17.vercel.app/",
+    },
+    {
+      id: 9,
+      title: "Movies App",
+      image: "/Project8.jpg",
+      description:
+        "A web application that allows users to browse and explore movies with a clean UI and responsive design.",
+      technologies: ["React", "Tailwind CSS", "Node.JS"],
+      githubLink: "https://github.com/AmmaarAnwar/Movies_App-master",
+    },
   ];
 
   const filteredProjects =

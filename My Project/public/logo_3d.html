@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      body {
+        margin: 0;
+        overflow: hidden;
+        color: white;
+        font-family: "Cairo", sans-serif;
+      }
+      canvas {
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+
+    <script type="module">
+      // --- Basic Scene Setup ---
+      const scene = new THREE.Scene();
+      const camera = new THREE.PerspectiveCamera(
+        75,
+        window.innerWidth / window.innerHeight,
+        0.1,
+        1000
+      );
+      const renderer = new THREE.WebGLRenderer({ antialias: true });
+      renderer.setSize(window.innerWidth, window.innerHeight);
+      renderer.setClearColor(0x0284c7, 1);
+      document.body.appendChild(renderer.domElement);
+
+      const controls = new THREE.OrbitControls(camera, renderer.domElement);
+      controls.enableDamping = true;
+      controls.dampingFactor = 0.05;
+      controls.autoRotate = true;
+      controls.autoRotateSpeed = 0.5;
+
+      // --- Lighting ---
+      const ambientLight = new THREE.AmbientLight(0xffffff, 0.2);
+      scene.add(ambientLight);
+      const pointLight1 = new THREE.PointLight(0x00e5ff, 1.5, 100);
+      pointLight1.position.set(-10, 10, 10);
+      scene.add(pointLight1);
+      const pointLight2 = new THREE.PointLight(0xff00c1, 1.5, 100);
+      pointLight2.position.set(10, -10, -10);
+      scene.add(pointLight2);
+
+      // --- 3D 'A' Letter ---
+      const shape = new THREE.Shape();
+      const scale = 1.5;
+      shape.moveTo(-1 * scale, -1 * scale);
+      shape.lineTo(0, 1.25 * scale);
+      shape.lineTo(1 * scale, -1 * scale);
+      shape.lineTo(0.8 * scale, -1 * scale);
+      shape.lineTo(0, 0.75 * scale);
+      shape.lineTo(-0.8 * scale, -1 * scale);
+      shape.lineTo(-1 * scale, -1 * scale);
+      const hole = new THREE.Path();
+      hole.moveTo(-0.4 * scale, -0.4 * scale);
+      hole.lineTo(0.4 * scale, -0.4 * scale);
+      hole.lineTo(0, 0.3 * scale);
+      shape.holes.push(hole);
+      const extrudeSettings = {
+        depth: 0.4,
+        bevelEnabled: true,
+        bevelThickness: 0.1,
+        bevelSize: 0.1,
+        bevelSegments: 5,
+      };
+      const geometry = new THREE.ExtrudeGeometry(shape, extrudeSettings);
+      geometry.center();
+      const material = new THREE.MeshStandardMaterial({
+        color: 0x2a2a3a,
+        metalness: 0.9,
+        roughness: 0.4,
+      });
+      const letterA = new THREE.Mesh(geometry, material);
+      scene.add(letterA);
+
+      // --- Digital Rings ---
+      const ringsGroup = new THREE.Group();
+      const ringMaterial = new THREE.MeshBasicMaterial({
+        color: 0x00e5ff,
+        wireframe: true,
+        transparent: true,
+        opacity: 0.5,
+      });
+      const ring1 = new THREE.Mesh(
+        new THREE.TorusGeometry(2, 0.02, 16, 100),
+        ringMaterial
+      );
+      const ring2 = new THREE.Mesh(
+        new THREE.TorusGeometry(2.2, 0.02, 16, 100),
+        ringMaterial.clone()
+      );
+      ring2.rotation.x = Math.PI / 4;
+      const ring3 = new THREE.Mesh(
+        new THREE.TorusGeometry(2.4, 0.02, 16, 100),
+        ringMaterial.clone()
+      );
+      ring3.rotation.x = Math.PI / 2;
+      ringsGroup.add(ring1, ring2, ring3);
+      scene.add(ringsGroup);
+
+      camera.position.z = 5;
+
+      function animate() {
+        requestAnimationFrame(animate);
+        controls.update();
+        ringsGroup.rotation.y += 0.002;
+        ringsGroup.rotation.z -= 0.003;
+        renderer.render(scene, camera);
+      }
+      animate();
+
+      window.addEventListener("resize", () => {
+        camera.aspect = window.innerWidth / window.innerHeight;
+        camera.updateProjectionMatrix();
+        renderer.setSize(window.innerWidth, window.innerHeight);
+      });
+    </script>
+  </body>
+</html>

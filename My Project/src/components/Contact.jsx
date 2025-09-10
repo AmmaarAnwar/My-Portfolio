@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { FaEnvelope, FaMapMarkerAlt, FaPhone } from "react-icons/fa";
+import Logo3D from "./Logo3D";
+
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -87,7 +89,6 @@ const Contact = () => {
             Feel free to contact me for any work or suggestions
           </p>
         </motion.div>
-
         <div className="grid grid-cols-1 gap-8 mb-12 md:grid-cols-3">
           {contactInfo.map((info, index) => (
             <motion.div
@@ -131,11 +132,7 @@ const Contact = () => {
                   Have a project in mind? I'd love to hear about it. Fill out
                   the form and I'll get back to you as soon as possible.
                 </p>
-                <img
-                  src="/Meeting.jpg"
-                  alt="Contact illustration"
-                  className="hidden rounded-lg shadow-lg lg:block"
-                />
+                <Logo3D />
               </div>
             </div>
 
