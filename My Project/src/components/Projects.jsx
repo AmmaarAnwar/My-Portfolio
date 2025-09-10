@@ -92,7 +92,7 @@ const Projects = () => {
       description:
         "E-commerce platform inspired by Amazon, featuring product listings, single product pages, dynamic cart management, and responsive UI for a smooth shopping experience.",
       technologies: ["React", "Tailwind CSS", "Node.JS"],
-      githubLink: "https://e-commerce-one-roan-17.vercel.app/",
+      githubLink: "https://github.com/AmmaarAnwar/E-Commerce",
     },
     {
       id: 9,
