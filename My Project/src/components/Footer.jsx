@@ -32,22 +32,29 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="py-12 text-white bg-dark">
+    <footer className="py-12 text-slate-900 dark:text-white bg-slate-100 dark:bg-slate-950 border-t border-slate-200 dark:border-slate-900 transition-colors duration-300">
       <div className="container px-4 mx-auto">
         <div className="flex flex-col items-center justify-between md:flex-row">
           <div className="mb-6 md:mb-0">
             <h3 className="mb-2 text-2xl font-bold">
-              <span className="text-primary-500">Port</span>folio
+              <span className="text-cyan-600 dark:text-cyan-400">Port</span>
+              folio
             </h3>
-            <p className="text-gray-400">
-              Web <span className="text-primary-500">Designer </span>&{" "}
-              <span className="text-secondary-500">Developer</span>
+            <p className="text-slate-600 dark:text-gray-400">
+              Web{" "}
+              <span className="text-cyan-600 dark:text-cyan-400">
+                Designer{" "}
+              </span>
+              &{" "}
+              <span className="text-purple-600 dark:text-purple-500">
+                Developer
+              </span>
             </p>
-            <p className="text-gray-400">
+            <p className="text-slate-500 dark:text-slate-400">
               Every line of code is an opportunity to create something
               meaningful.
             </p>
-            <p className="text-gray-400">
+            <p className="text-slate-500 dark:text-slate-400">
               I believe in the power of technology to solve real problems and
               make life better.
             </p>
@@ -59,7 +66,7 @@ const Footer = () => {
                 key={index}
                 href={link.url}
                 aria-label={link.ariaLabel}
-                className="p-2 text-gray-400 transition-colors duration-300 bg-gray-800 rounded-full hover:bg-primary-600 hover:text-white"
+                className="p-2 text-slate-500 dark:text-slate-400 transition-colors duration-300 rounded-full bg-slate-200 dark:bg-slate-900 hover:bg-cyan-600 hover:text-white dark:hover:bg-cyan-600 dark:hover:text-white"
               >
                 {link.icon}
               </a>
@@ -67,9 +74,9 @@ const Footer = () => {
           </div>
         </div>
 
-        <hr className="my-8 border-gray-800" />
+        <hr className="my-8 border-slate-300 dark:border-slate-900" />
 
-        <div className="text-sm text-center text-gray-400">
+        <div className="text-sm text-center text-slate-500">
           <p>© {currentYear} Ammar Anwar.</p>
         </div>
       </div>

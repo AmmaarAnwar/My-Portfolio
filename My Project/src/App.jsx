@@ -9,6 +9,8 @@ import Footer from "./components/Footer";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/react";
 
+import { ThemeProvider } from "./context/ThemeContext";
+
 function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -17,7 +19,7 @@ function App() {
   };
 
   return (
-    <>
+    <ThemeProvider>
       <Navbar isMenuOpen={isMenuOpen} toggleMenu={toggleMenu} />
       <main>
         <SpeedInsights />
@@ -29,7 +31,7 @@ function App() {
         <Contact />
       </main>
       <Footer />
-    </>
+    </ThemeProvider>
   );
 }
 

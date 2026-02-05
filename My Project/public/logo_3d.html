@@ -11,6 +11,7 @@
         font-family: "Cairo", sans-serif;
       }
       canvas {
+        border-radius: 7%;
         display: block;
       }
     </style>
@@ -30,7 +31,7 @@
       );
       const renderer = new THREE.WebGLRenderer({ antialias: true });
       renderer.setSize(window.innerWidth, window.innerHeight);
-      renderer.setClearColor(0x0284c7, 1);
+      renderer.setClearColor(0x1e40af, 1);
       document.body.appendChild(renderer.domElement);
 
       const controls = new THREE.OrbitControls(camera, renderer.domElement);

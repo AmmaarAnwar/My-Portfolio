@@ -38,17 +38,17 @@ const Skills = () => {
     },
     {
       name: "Responsive Design",
-      icon: <FaMobile className="text-gray-700" />,
+      icon: <FaMobile className="text-slate-400" />,
       level: 85,
     },
     {
       name: "Git & GitHub",
-      icon: <FaGithub className="text-gray-900" />,
+      icon: <FaGithub className="text-white" />,
       level: 70,
     },
     {
       name: "Python",
-      icon: <FaPython className="text-gray-700" />,
+      icon: <FaPython className="text-slate-400" />,
       level: 65,
     },
     {
@@ -73,7 +73,10 @@ const Skills = () => {
   ];
 
   return (
-    <section id="skills" className="py-20 bg-gray-50">
+    <section
+      id="skills"
+      className="py-20 bg-slate-50 dark:bg-slate-950 transition-colors duration-300"
+    >
       <div className="container px-4 mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -82,20 +85,22 @@ const Skills = () => {
           transition={{ duration: 0.8 }}
           className="mb-16 text-center"
         >
-          <h2 className="mb-4 text-3xl font-bold md:text-4xl">My Skills</h2>
-          <div className="w-20 h-1 mx-auto mb-8 bg-primary-600"></div>
-          <p className="max-w-2xl mx-auto text-gray-600">
+          <h2 className="mb-4 text-3xl font-bold md:text-4xl text-slate-900 dark:text-slate-100">
+            My Skills
+          </h2>
+          <div className="w-20 h-1 mx-auto mb-8 rounded bg-cyan-600"></div>
+          <p className="max-w-2xl mx-auto text-slate-600 dark:text-slate-400">
             Here are my technical and soft skills that I've developed
           </p>
         </motion.div>
 
         <div className="flex justify-center mb-12">
-          <div className="inline-flex bg-white border border-gray-200 rounded-lg">
+          <div className="inline-flex border rounded-lg bg-white dark:bg-slate-900 border-slate-200 dark:border-slate-700">
             <button
               className={`px-6 py-3 text-sm font-medium rounded-l-lg transition-colors ${
                 activeTab === "technical"
-                  ? "bg-primary-600 text-white"
-                  : "text-gray-700 hover:bg-gray-50"
+                  ? "bg-cyan-600 text-white"
+                  : "text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800"
               }`}
               onClick={() => setActiveTab("technical")}
             >
@@ -104,8 +109,8 @@ const Skills = () => {
             <button
               className={`px-6 py-3 text-sm font-medium rounded-r-lg transition-colors ${
                 activeTab === "soft"
-                  ? "bg-primary-600 text-white"
-                  : "text-gray-700 hover:bg-gray-50"
+                  ? "bg-cyan-600 text-white"
+                  : "text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800"
               }`}
               onClick={() => setActiveTab("soft")}
             >
@@ -129,18 +134,22 @@ const Skills = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="p-6 bg-white rounded-lg shadow-lg"
+                className="p-6 rounded-lg shadow-lg bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 transition-colors duration-300"
               >
                 <div className="flex items-center justify-between mb-4">
                   <div className="flex items-center gap-3">
                     <span className="text-2xl">{skill.icon}</span>
-                    <span className="font-medium">{skill.name}</span>
+                    <span className="font-medium text-slate-900 dark:text-slate-200">
+                      {skill.name}
+                    </span>
                   </div>
-                  <span className="text-sm text-gray-600">{skill.level}%</span>
+                  <span className="text-sm text-slate-600 dark:text-slate-400">
+                    {skill.level}%
+                  </span>
                 </div>
-                <div className="h-2 overflow-hidden bg-gray-200 rounded-full">
+                <div className="h-2 overflow-hidden rounded-full bg-slate-200 dark:bg-slate-700">
                   <motion.div
-                    className="h-full bg-gradient-to-r from-primary-500 to-primary-600"
+                    className="h-full bg-gradient-to-r from-cyan-500 to-blue-500"
                     initial={{ width: 0 }}
                     whileInView={{ width: `${skill.level}%` }}
                     viewport={{ once: true }}
@@ -167,15 +176,19 @@ const Skills = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="p-6 bg-white rounded-lg shadow-lg"
+                className="p-6 rounded-lg shadow-lg bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 transition-colors duration-300"
               >
                 <div className="flex items-center justify-between mb-4">
-                  <span className="font-medium">{skill.name}</span>
-                  <span className="text-sm text-gray-600">{skill.level}%</span>
+                  <span className="font-medium text-slate-900 dark:text-slate-200">
+                    {skill.name}
+                  </span>
+                  <span className="text-sm text-slate-600 dark:text-slate-400">
+                    {skill.level}%
+                  </span>
                 </div>
-                <div className="h-2 overflow-hidden bg-gray-200 rounded-full">
+                <div className="h-2 overflow-hidden rounded-full bg-slate-200 dark:bg-slate-700">
                   <motion.div
-                    className="h-full bg-gradient-to-r from-secondary-500 to-secondary-600"
+                    className="h-full bg-gradient-to-r from-purple-500 to-pink-500"
                     initial={{ width: 0 }}
                     whileInView={{ width: `${skill.level}%` }}
                     viewport={{ once: true }}

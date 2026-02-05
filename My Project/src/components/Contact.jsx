@@ -3,7 +3,6 @@ import { motion } from "framer-motion";
 import { FaEnvelope, FaMapMarkerAlt, FaPhone } from "react-icons/fa";
 import Logo3D from "./Logo3D";
 
-
 const Contact = () => {
   const [formData, setFormData] = useState({
     name: "",
@@ -34,7 +33,7 @@ const Contact = () => {
             "Content-Type": "application/json",
           },
           body: JSON.stringify(formData),
-        }
+        },
       );
 
       if (!response.ok) throw new Error("Failed to send message");
@@ -55,24 +54,27 @@ const Contact = () => {
 
   const contactInfo = [
     {
-      icon: <FaEnvelope className="text-2xl text-primary-500" />,
+      icon: <FaEnvelope className="text-2xl text-cyan-500" />,
       title: "Email",
       content: "anwaramar177@gmail.com",
     },
     {
-      icon: <FaPhone className="text-2xl text-primary-500" />,
+      icon: <FaPhone className="text-2xl text-cyan-500" />,
       title: "Phone",
-      content: "+201119131252",
+      content: "+201001799244",
     },
     {
-      icon: <FaMapMarkerAlt className="text-2xl text-primary-500" />,
+      icon: <FaMapMarkerAlt className="text-2xl text-cyan-500" />,
       title: "Location",
       content: "Cairo, Egypt",
     },
   ];
 
   return (
-    <section id="contact" className="section bg-gray-50">
+    <section
+      id="contact"
+      className="section bg-slate-50 dark:bg-slate-950 transition-colors duration-300"
+    >
       <div className="container">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -81,11 +83,11 @@ const Contact = () => {
           transition={{ duration: 0.8 }}
           className="mb-16 text-center"
         >
-          <h2 className="inline-block mb-3 text-transparent bg-gradient-to-r from-primary-600 to-secondary-600 bg-clip-text">
+          <h2 className="inline-block mb-3 text-transparent bg-gradient-to-r from-cyan-500 to-purple-600 dark:from-cyan-400 dark:to-purple-500 bg-clip-text">
             Get In Touch
           </h2>
-          <div className="w-24 h-1 mx-auto rounded bg-primary-600"></div>
-          <p className="mt-6 text-lg text-gray-600">
+          <div className="w-24 h-1 mx-auto rounded bg-cyan-600"></div>
+          <p className="mt-6 text-lg text-slate-600 dark:text-slate-400">
             Feel free to contact me for any work or suggestions
           </p>
         </motion.div>
@@ -97,17 +99,17 @@ const Contact = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: index * 0.2 }}
-              className="flex flex-col items-center p-6 text-center bg-white rounded-lg shadow-custom"
+              className="flex flex-col items-center p-6 text-center rounded-lg shadow-custom bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 transition-colors duration-300"
             >
-              <div className="p-4 mb-4 rounded-full bg-primary-50">
+              <div className="p-4 mb-4 rounded-full bg-slate-100 dark:bg-slate-800 transition-colors duration-300">
                 {info.icon}
               </div>
-              <h3 className="mb-2 text-lg font-semibold text-dark">
+              <h3 className="mb-2 text-lg font-semibold text-slate-900 dark:text-slate-100">
                 {info.title}
               </h3>
               <a
                 href={info.link}
-                className="text-gray-600 transition-colors hover:text-primary-600"
+                className="text-slate-600 dark:text-slate-400 transition-colors hover:text-cyan-600 dark:hover:text-cyan-400"
               >
                 {info.content}
               </a>
@@ -120,15 +122,15 @@ const Contact = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="overflow-hidden bg-white shadow-lg rounded-xl"
+          className="overflow-hidden shadow-lg bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800 transition-colors duration-300"
         >
           <div className="grid grid-cols-1 lg:grid-cols-2">
-            <div className="flex items-center p-8 text-white bg-primary-600">
+            <div className="flex items-center p-8 text-slate-900 dark:text-white bg-slate-100 dark:bg-slate-800 transition-colors duration-300">
               <div>
                 <h3 className="mb-6 text-2xl font-bold">
                   Let's discuss your project
                 </h3>
-                <p className="mb-8 text-primary-100">
+                <p className="mb-8 text-slate-600 dark:text-slate-300">
                   Have a project in mind? I'd love to hear about it. Fill out
                   the form and I'll get back to you as soon as possible.
                 </p>
@@ -141,7 +143,7 @@ const Contact = () => {
                 <div className="mb-6">
                   <label
                     htmlFor="name"
-                    className="block mb-2 text-sm font-medium text-gray-700"
+                    className="block mb-2 text-sm font-medium text-slate-700 dark:text-slate-300"
                   >
                     Name
                   </label>
@@ -151,14 +153,14 @@ const Contact = () => {
                     name="name"
                     value={formData.name}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+                    className="w-full px-4 py-3 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white border border-slate-300 dark:border-slate-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-transparent transition-colors duration-300"
                     required
                   />
                 </div>
                 <div className="mb-6">
                   <label
                     htmlFor="email"
-                    className="block mb-2 text-sm font-medium text-gray-700"
+                    className="block mb-2 text-sm font-medium text-slate-700 dark:text-slate-300"
                   >
                     Email
                   </label>
@@ -168,14 +170,14 @@ const Contact = () => {
                     name="email"
                     value={formData.email}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+                    className="w-full px-4 py-3 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white border border-slate-300 dark:border-slate-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-transparent transition-colors duration-300"
                     required
                   />
                 </div>
                 <div className="mb-6">
                   <label
                     htmlFor="subject"
-                    className="block mb-2 text-sm font-medium text-gray-700"
+                    className="block mb-2 text-sm font-medium text-slate-700 dark:text-slate-300"
                   >
                     Subject
                   </label>
@@ -185,14 +187,14 @@ const Contact = () => {
                     name="subject"
                     value={formData.subject}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+                    className="w-full px-4 py-3 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white border border-slate-300 dark:border-slate-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-transparent transition-colors duration-300"
                     required
                   />
                 </div>
                 <div className="mb-6">
                   <label
                     htmlFor="message"
-                    className="block mb-2 text-sm font-medium text-gray-700"
+                    className="block mb-2 text-sm font-medium text-slate-700 dark:text-slate-300"
                   >
                     Message
                   </label>
@@ -202,13 +204,13 @@ const Contact = () => {
                     value={formData.message}
                     onChange={handleChange}
                     rows="5"
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+                    className="w-full px-4 py-3 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white border border-slate-300 dark:border-slate-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-transparent transition-colors duration-300"
                     required
                   ></textarea>
                 </div>
                 <button
                   type="submit"
-                  className="w-full px-6 py-3 font-medium text-white transition-colors duration-300 rounded-lg shadow-md bg-primary-600 hover:bg-primary-700 hover:shadow-lg"
+                  className="w-full px-6 py-3 font-medium text-white transition-colors duration-300 rounded-lg shadow-md bg-cyan-600 hover:bg-cyan-700 hover:shadow-lg"
                   disabled={submitStatus.type === "loading"}
                 >
                   {submitStatus.type === "loading"
@@ -221,8 +223,8 @@ const Contact = () => {
                       submitStatus.type === "success"
                         ? "bg-green-100 text-green-700"
                         : submitStatus.type === "error"
-                        ? "bg-red-100 text-red-700"
-                        : "bg-blue-100 text-blue-700"
+                          ? "bg-red-100 text-red-700"
+                          : "bg-blue-100 text-blue-700"
                     }`}
                   >
                     {submitStatus.message}

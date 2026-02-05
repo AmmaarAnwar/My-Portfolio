@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { FaGithub } from "react-icons/fa";
+import { FaExternalLinkAlt } from "react-icons/fa";
 
 const Projects = () => {
   const [activeFilter] = useState("all");
@@ -84,6 +85,7 @@ const Projects = () => {
         "A React-based restaurant website showcasing Koshry El Tahrir in Egypt with an interactive menu, modern UI, and responsive design. The site allows users to browse dishes explore categories, and enjoy a smooth navigation experience",
       technologies: ["React", "Tailwind CSS", "Node.JS"],
       githubLink: "https://github.com/AmmaarAnwar/Koshry-Tahrir",
+      demoLink: "https://ammaaranwar.github.io/Koshry-Tahrir",
     },
     {
       id: 8,
@@ -93,6 +95,7 @@ const Projects = () => {
         "E-commerce platform inspired by Amazon, featuring product listings, single product pages, dynamic cart management, and responsive UI for a smooth shopping experience.",
       technologies: ["React", "Tailwind CSS", "Node.JS"],
       githubLink: "https://github.com/AmmaarAnwar/E-Commerce",
+      demoLink: "https://e-commerce-one-roan-17.vercel.app",
     },
     {
       id: 9,
@@ -102,6 +105,7 @@ const Projects = () => {
         "A web application that allows users to browse and explore movies with a clean UI and responsive design.",
       technologies: ["React", "Tailwind CSS", "Node.JS"],
       githubLink: "https://github.com/AmmaarAnwar/Movies_App-master",
+      demoLink: "https://ammaaranwar.github.io/Movies_App-master",
     },
   ];
 
@@ -111,7 +115,10 @@ const Projects = () => {
       : projects.filter((project) => project.category === activeFilter);
 
   return (
-    <section id="projects" className="bg-white section">
+    <section
+      id="projects"
+      className="bg-slate-50 dark:bg-slate-950 section transition-colors duration-300"
+    >
       <div className="container">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -120,16 +127,15 @@ const Projects = () => {
           transition={{ duration: 0.8 }}
           className="mb-16 text-center"
         >
-          <h2 className="inline-block mb-3 text-transparent bg-gradient-to-r from-primary-600 to-secondary-600 bg-clip-text">
+          <h2 className="inline-block mb-3 text-transparent bg-gradient-to-r from-cyan-500 to-purple-600 dark:from-cyan-400 dark:to-purple-500 bg-clip-text">
             My Projects
           </h2>
-          <div className="w-24 h-1 mx-auto rounded bg-primary-600"></div>
-          <p className="mt-6 text-lg text-gray-600">
+          <div className="w-24 h-1 mx-auto rounded bg-cyan-600"></div>
+          <p className="mt-6 text-lg text-slate-600 dark:text-slate-400">
             Check out some of my work
           </p>
         </motion.div>
 
-        {/* Projects Grid */}
         <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
           {filteredProjects.map((project) => (
             <ProjectCard key={project.id} project={project} />
@@ -157,34 +163,31 @@ const ProjectCard = ({ project }) => {
         className="relative overflow-hidden"
         style={{ paddingBottom: "66.67%" }}
       >
-        {/* Project Image */}
         <img
           src={project.image}
           alt={project.title}
           className="absolute inset-0 object-cover w-full h-full transition-transform duration-500 group-hover:scale-110"
         />
 
-        {/* Overlay */}
         <div
-          className={`absolute inset-0 bg-gradient-to-t from-dark to-transparent opacity-0 transition-opacity duration-300 ${
+          className={`absolute inset-0 bg-gradient-to-t from-slate-950/90 to-transparent opacity-0 transition-opacity duration-300 ${
             isHovered ? "opacity-80" : ""
           }`}
         ></div>
 
-        {/* Project Info */}
         <div
           className={`absolute inset-0 flex flex-col justify-end p-6 text-white transition-all duration-300 ${
             isHovered ? "opacity-100" : "opacity-0"
           }`}
         >
           <h3 className="text-xl font-bold">{project.title}</h3>
-          <p className="mt-2 text-sm text-gray-100">{project.description}</p>
+          <p className="mt-2 text-sm text-slate-300">{project.description}</p>
 
           <div className="flex flex-wrap gap-2 mt-3">
             {project.technologies.map((tech, index) => (
               <span
                 key={index}
-                className="inline-block px-2 py-1 text-xs rounded-full bg-primary-500 bg-opacity-40"
+                className="inline-block px-2 py-1 text-xs text-white rounded-full bg-cyan-600 bg-opacity-60"
               >
                 {tech}
               </span>
@@ -194,13 +197,24 @@ const ProjectCard = ({ project }) => {
           <div className="flex mt-4 space-x-3">
             <a
               href={project.githubLink}
-              className="p-2 text-white transition-colors bg-opacity-50 rounded-full bg-dark hover:bg-opacity-80"
+              className="p-2 text-white transition-colors bg-opacity-50 rounded-full bg-slate-900 hover:bg-opacity-80"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="View GitHub Repository"
             >
               <FaGithub />
             </a>
+            {project.demoLink && (
+              <a
+                href={project.demoLink}
+                className="p-2 text-white transition-colors bg-opacity-50 rounded-full bg-slate-900 hover:bg-opacity-80"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="View Live Demo"
+              >
+                <FaExternalLinkAlt />
+              </a>
+            )}
           </div>
         </div>
       </div>

@@ -6,12 +6,20 @@
   html {
     @apply scroll-smooth;
   }
-  
+
   body {
-    @apply font-sans text-dark bg-light;
+    @apply font-sans;
+    @apply bg-slate-50 text-slate-900;
+    @apply dark:bg-slate-950 dark:text-slate-100;
+    @apply transition-colors duration-300;
   }
 
-  h1, h2, h3, h4, h5, h6 {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     @apply font-heading font-bold;
   }
 
